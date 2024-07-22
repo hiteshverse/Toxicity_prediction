@@ -93,7 +93,7 @@ class Evaluation:
 
             if np.isnan(scaled_features).sum()==0:
                 #booster = lgb.Booster(model_str=model)
-                pred.append(np.round(model1.predict(scaled_features)[0],2))     
+                pred.append(np.round(model1.predict_proba(scaled_features)[0][1],2))     
             else:
                 pred.append(f'Not_calculate')
         return pred        
