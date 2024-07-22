@@ -46,20 +46,20 @@ class utils:
         data=data2.astype(float)
 
         # Convert float values to binary using pd.cut
-        for column in data.columns[1:]:
+        for column in data.columns[:]:
             data[column] = data[column].apply(lambda x: 'Not_calculate' if pd.isna(x) else '1' if x <= 0.5 else '0')
 
         print(data)
         # Creating summary table
         s = pd.DataFrame()
-        for column in data.columns[1:]:
+        for column in data.columns[:]:
             s1 = data[column].value_counts().to_dict()
             s = pd.concat([s, pd.DataFrame([s1], index=[column])])
         
         s.fillna(0, inplace=True)
         fin = s.T
         fin = fin.astype(int, errors='ignore')
-        fin.columns = data.columns[1:]
+        fin.columns = data.columns[:]
 
         # Creating index labels
         fin.index = ['Not_calculate' if i == 'Not_calculate' else 'Toxic' if i == '1' else 'Non-Toxic' for i in fin.index]
