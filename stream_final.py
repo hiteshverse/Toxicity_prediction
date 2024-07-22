@@ -80,7 +80,8 @@ if nav == "Prediction":
             st.error('Please select at least one toxicity')
         else:
             ## show df in tables
-            st.table(df.head(10))
+            #st.table(df.head(10))
+            st.dataframe(df.head(10), height=300)
              
             ##set download option
             col1, col2, col3 = st.columns([2,1,1])

@@ -49,7 +49,7 @@ class utils:
         for column in data.columns[:]:
             data[column] = data[column].apply(lambda x: 'Not_calculate' if pd.isna(x) else '1' if x <= 0.5 else '0')
 
-        print(data)
+        #print(data)
         # Creating summary table
         s = pd.DataFrame()
         for column in data.columns[:]:
