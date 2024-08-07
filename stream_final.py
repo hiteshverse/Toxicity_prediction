@@ -109,7 +109,7 @@ if nav == "Prediction":
 
             # who v/s fare barplot 
             ##unpivoted_df['Class'] = unpivoted_df['Class'].astype(str)
-            fig = px.bar(unpivoted_df, x="Toxicity", y="values", color="Class",barmode='group', title="Toxicity Prediction",text="values") #,color_discrete_map={'0': 'skyblue', '1': 'darkblue'})
+            fig = px.bar(unpivoted_df, x="Toxicity", y="values", color="Class",barmode='group', title="Toxicity Prediction",text="values",color_discrete_map={'0': 'skyblue', '1': 'darkblue'})
             fig.update_layout(autosize=True, width=900, height=500,title_x=0.4) 
            # Display the grouped bar plot in Streamlit
             st.plotly_chart(fig, use_container_width=True)
