@@ -47,7 +47,7 @@ class utils:
 
         # Convert float values to binary using pd.cut
         for column in data.columns[:]:
-            data[column] = data[column].apply(lambda x: 'Not_calculate' if pd.isna(x) else '1' if x <= 0.5 else '0')
+            data[column] = data[column].apply(lambda x: 'Not_calculate' if pd.isna(x) else '0' if x <= 0.5 else '1')
 
         #print(data)
         # Creating summary table
@@ -62,7 +62,7 @@ class utils:
         fin.columns = data.columns[:]
 
         # Creating index labels
-        fin.index = ['Not_calculate' if i == 'Not_calculate' else 'Non-Toxic' if i == '1' else 'Toxic' for i in fin.index]
+        fin.index = ['Not_calculate' if i == 'Not_calculate' else 'Toxic' if i == '1' else 'Non-Toxic' for i in fin.index]
         fin = fin.reset_index(names='Class')
         
         return fin
